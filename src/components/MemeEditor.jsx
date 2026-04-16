@@ -13,6 +13,19 @@ const FONT_OPTIONS = [
   },
 ];
 
+const TEXT_MODE_OPTIONS = [
+  {
+    label: 'Texte intérieur',
+    value: 'inside',
+    description: 'Le texte est affiché directement sur l’image.',
+  },
+  {
+    label: 'Texte extérieur',
+    value: 'outside',
+    description: 'Le texte est placé au-dessus et au-dessous de l’image.',
+  },
+];
+
 function MemeEditor({
   form,
   hasImage,
@@ -25,6 +38,28 @@ function MemeEditor({
 }) {
   return (
     <div className="editor-stack">
+      <div className="field-group">
+        <label>Placement du texte</label>
+        <div className="mode-selector">
+          {TEXT_MODE_OPTIONS.map((mode) => {
+            const isActive = form.textMode === mode.value;
+
+            return (
+              <button
+                key={mode.value}
+                type="button"
+                className={`mode-card ${isActive ? 'mode-card-active' : ''}`}
+                onClick={() => onFieldChange('textMode', mode.value)}
+              >
+                <span className="mode-card-icon">{mode.value === 'inside' ? 'In' : 'Out'}</span>
+                <strong>{mode.label}</strong>
+                <span>{mode.description}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       <div className="field-group">
         <label htmlFor="top-text">Texte du haut</label>
         <input

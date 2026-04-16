@@ -7,6 +7,7 @@ import { captureElementAsPng, downloadDataUrl, shareDataUrl } from './utils/meme
 import { loadMemes, saveMemes } from './utils/storage';
 
 const DEFAULT_FORM = {
+  textMode: 'inside',
   topText: 'Ton idée brillante',
   bottomText: 'quand elle devient un mème',
   textColor: '#ffffff',
@@ -285,6 +286,7 @@ function App() {
               <MemePreview
                 previewRef={previewRef}
                 imageSrc={imageSrc}
+                textMode={form.textMode}
                 topText={form.topText}
                 bottomText={form.bottomText}
                 textColor={form.textColor}

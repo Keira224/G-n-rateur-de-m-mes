@@ -12,7 +12,9 @@ function Gallery({ memes, onDelete, onDownload, onShare }) {
     <div className="gallery-grid">
       {memes.map((meme) => (
         <article className="gallery-card" key={meme.id}>
-          <img src={meme.dataUrl} alt={meme.title} className="gallery-image" />
+          <div className="gallery-media">
+            <img src={meme.dataUrl} alt={meme.title} className="gallery-image" />
+          </div>
 
           <div className="gallery-card-body">
             <div>

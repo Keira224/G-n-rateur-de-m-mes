@@ -736,6 +736,7 @@ button {
 }
 
 .gallery-card {
+  display: grid;
   overflow: hidden;
   border-radius: 22px;
   border: 1px solid var(--border);
@@ -743,12 +744,26 @@ button {
   backdrop-filter: blur(12px);
 }
 
+.gallery-media {
+  display: grid;
+  place-items: center;
+  min-height: 280px;
+  padding: 18px;
+  background:
+    radial-gradient(circle at top right, rgba(79, 140, 255, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+    #0f1728;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 .gallery-image {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  background: #111827;
+  max-height: 320px;
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+  filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.28));
 }
 
 .gallery-card-body {
